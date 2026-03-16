@@ -1,5 +1,6 @@
 import ReactPlayer from 'react-player';
 import { useState } from 'react';
+import ReactGA from 'react-ga4';
 
 const videos = [
   {
@@ -25,6 +26,11 @@ export default function VideoPage() {
 
   const handlePlay = () => {
     // GA4 hook point: gtag('event', 'video_play', { video_title: videos[active].title })
+    ReactGA.event({
+        category: 'Video',
+        action: 'video_play',
+        label: videos[active].title,
+    });
     console.log(`[Analytics] video_play — ${videos[active].title}`);
   };
 

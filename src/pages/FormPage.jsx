@@ -1,5 +1,6 @@
 import { useForm } from 'react-hook-form';
 import { useState } from 'react';
+import ReactGA from 'react-ga4';
 
 export default function FormPage() {
   const [submitted, setSubmitted] = useState(false);
@@ -15,6 +16,11 @@ export default function FormPage() {
     // Simulate async submission
     await new Promise((r) => setTimeout(r, 800));
     // GA4 hook point: gtag('event', 'form_submit', { form_name: 'contact' })
+    ReactGA.event({
+        category: 'Form',
+        action: 'form_submit',
+        label: 'contact',
+    });
     console.log('[Analytics] form_submit —', data);
     setSubmitted(true);
     reset();

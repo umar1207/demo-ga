@@ -1,4 +1,4 @@
-import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import { BrowserRouter, Routes, Route, useLocation } from 'react-router-dom';
 import { AuthProvider } from './context/AuthContext';
 import ProtectedRoute from './components/ProtectedRoute';
 import Navbar from './components/Navbar';
@@ -9,6 +9,21 @@ import Outbound from './pages/Outbound';
 import FormPage from './pages/FormPage';
 import VideoPage from './pages/VideoPage';
 import DownloadPage from './pages/DownloadPage';
+import ReactGA from 'react-ga4';
+import { useEffect } from 'react';
+
+function PageTracker() {
+  const location = useLocation();
+
+  useEffect(() => {
+    ReactGA.default.send({
+      hitType: 'pageview',
+      page: location.pathname,
+    });
+  }, [location]);
+
+  return null;
+}
 
 function Layout({ children }) {
   return (
@@ -24,6 +39,7 @@ export default function App() {
   return (
     <BrowserRouter>
       <AuthProvider>
+        <PageTracker />
         <Routes>
           {/* Public */}
           <Route path="/login" element={<LoginPage />} />
