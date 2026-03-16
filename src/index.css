@@ -1,0 +1,29 @@
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=DM+Sans:wght@300;400;500;600&family=DM+Mono:wght@400;500&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html { scroll-behavior: smooth; }
+  body {
+    font-family: 'DM Sans', sans-serif;
+    background-color: #fafaf9;
+    color: #1c1917;
+  }
+}
+
+@layer components {
+  .btn-primary {
+    @apply inline-flex items-center gap-2 bg-stone-900 text-stone-50 px-6 py-3 text-sm font-medium tracking-wide transition-all duration-200 hover:bg-stone-700 active:scale-95;
+  }
+  .btn-outline {
+    @apply inline-flex items-center gap-2 border border-stone-900 text-stone-900 px-6 py-3 text-sm font-medium tracking-wide transition-all duration-200 hover:bg-stone-900 hover:text-stone-50 active:scale-95;
+  }
+  .section-label {
+    @apply text-xs font-mono font-medium tracking-[0.2em] uppercase text-stone-400;
+  }
+  .page-title {
+    @apply font-display text-4xl md:text-5xl font-semibold text-stone-900 leading-tight;
+  }
+}
