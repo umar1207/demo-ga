@@ -43,7 +43,8 @@ export default function Outbound() {
   const handleClick = (url, label) => {
     // GA4 hook point: gtag('event', 'outbound_click', { link_url: url, link_text: label })
     console.log(`[Analytics] outbound_click — ${label} → ${url}`);
-    ReactGA.event({
+    console.log(ReactGA);
+    ReactGA.default.event({
         category: 'Outbound',
         action: 'outbound_click',
         label: label,

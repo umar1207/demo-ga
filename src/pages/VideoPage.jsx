@@ -26,7 +26,7 @@ export default function VideoPage() {
 
   const handlePlay = () => {
     // GA4 hook point: gtag('event', 'video_play', { video_title: videos[active].title })
-    ReactGA.event({
+    ReactGA.default.event({
         category: 'Video',
         action: 'video_play',
         label: videos[active].title,

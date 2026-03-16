@@ -16,11 +16,12 @@ export default function FormPage() {
     // Simulate async submission
     await new Promise((r) => setTimeout(r, 800));
     // GA4 hook point: gtag('event', 'form_submit', { form_name: 'contact' })
-    ReactGA.event({
+    ReactGA.default.event({
         category: 'Form',
         action: 'form_submit',
         label: 'contact',
     });
+    console.log(ReactGA);
     console.log('[Analytics] form_submit —', data);
     setSubmitted(true);
     reset();

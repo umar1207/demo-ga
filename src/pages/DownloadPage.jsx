@@ -35,11 +35,12 @@ import ReactGA from 'react-ga4';
 export default function DownloadPage() {
   const handleDownload = (file) => {
     // GA4 hook point: gtag('event', 'file_download', { file_name: file.name, file_type: file.type })
-    ReactGA.event({
+    ReactGA.default.event({
         category: 'Download',
         action: 'file_download',
         label: file.name,
     });
+    console.log(ReactGA);
     console.log(`[Analytics] file_download — ${file.name}`);
   };
 
